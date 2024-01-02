@@ -17,6 +17,9 @@ app.use(express.json());
 // app.use(cors({ origin: "https://liquidacionesfrontend-production.up.railway.app/"}));
 app.use(cors())
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 // auth
 app.use((req, res, next) => {
@@ -36,10 +39,6 @@ app.use((req, res, next) => {
   res.status(401).send("Authentication required."); // custom message
 }
 );
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.get("/api/trabajador", async (req, res) => {
   const trabajadores = await getTrabajador();
