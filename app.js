@@ -14,18 +14,15 @@ app.use(express.json());
 // cors allow all
 app.use(cors({ origin: "*"}));
 
-console.log(process.env.USER_NAME, process.env.USER_PASSWORD)
 
 // auth
 app.use((req, res, next) => {
   const auth = { login: process.env.USER_NAME, password: process.env.USER_PASSWORD };
   // parse login and password from headers
   const b64auth = (req.headers.authorization || "").split(" ")[1] || "";
-  console.log(b64auth)
   const [login, password] = Buffer.from(b64auth, "base64")
     .toString()
     .split(":");
-    console.log(login, password)
   // Verify login and password are set and correct
   if (login && password && login === auth.login && password === auth.password) {
     // Access granted...
