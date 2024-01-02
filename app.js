@@ -15,7 +15,7 @@ app.use(express.json());
 // app.use(cors({ origin: "*"}));
 
 // app.use(cors({ origin: "https://liquidacionesfrontend-production.up.railway.app/"}));
-app.use(cors({ AccessControlAllowOrigin: "*"}));
+app.use(cors())
 
 
 // auth
