@@ -12,9 +12,9 @@ const {
 
 app.use(express.json());
 // cors allow all
-// app.use(cors({ origin: "*"}));
+app.use(cors({ origin: "*"}));
 
-app.use(cors({ origin: "https://liquidacionesfrontend-production.up.railway.app/"}));
+// app.use(cors({ origin: "https://liquidacionesfrontend-production.up.railway.app/"}));
 
 
 // auth
